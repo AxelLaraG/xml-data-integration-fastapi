@@ -1,0 +1,181 @@
+<!-- Raíz -->
+<!ELEMENT cvu (
+    DatosPersonales,
+    Contacto?,
+    AdscripcionesTecNM,
+    TitulosAcademicos+,
+    ProductividadAcademica
+)>
+
+<!-- Datos Personales -->
+<!ELEMENT DatosPersonales (
+    Nombre,
+    Genero,
+    CURP,
+    RFC,
+    FechaNacimiento,
+    PaisNacimiento,
+    ResumenBibliografico
+)>
+
+<!-- Contacto -->
+<!ELEMENT Contacto (
+    Telefono*,
+    Correo+
+)>
+
+<!-- Adscripciones TecNM -->
+<!ELEMENT AdscripcionesTecNM (
+    Adscripcion+
+)>
+
+<!--Adscripcion-->
+<!ELEMENT Adscripcion (
+    Institucion,
+    Puesto,
+    Departamento,
+    Vigencia
+)>
+
+<!-- Títulos Académicos -->
+<!ELEMENT TitulosAcademicos (
+    FechaObtencion,
+    Titulo,
+    Cedula,
+    LugarDeEstudios
+)>
+
+<!-- Productividad académica-->
+<!ELEMENT ProductividadAcademica (
+    Articulos*,
+    Capitulos*,
+    TesisDirigida*,
+    Otros*
+)>
+
+<!-- Artículos -->
+<!ELEMENT Articulos (
+    Articulo*
+)>
+
+<!-- Capitulos -->
+<!ELEMENT Capitulos (
+    Capitulo*
+)>
+
+<!-- Tesis dirigida -->
+<!ELEMENT TesisDirigida (
+    Tesis*
+)>
+
+<!-- Otros -->
+<!ELEMENT Otros (
+    Otro*
+)>
+
+<!--Articulo -->
+<!ELEMENT Articulo (
+    Titulo,
+    Autores,
+    Resumen,
+    Revista,
+    Proposito,
+    SectorDisciplina
+)>
+
+<!-- Capítulo -->
+<!ELEMENT Capitulo (
+    Titulo,
+    Autores,
+    Resumen,
+    Libro,
+    Proposito,
+    SectorDisciplina
+)>
+
+<!-- Tesis -->
+<!ELEMENT Tesis (
+    Titulo, 
+    Autores,
+    Resumen,
+    PublicadoEn,
+    Proposito,
+    SectorDisciplina
+)>
+
+<!-- Otro -->
+<!ELEMENT Otro (
+    Titulo, 
+    Autores,
+    Resumen,
+    PublicadoEn,
+    Proposito,
+    SectorDisciplina
+)>
+
+<!-- Autores -->
+<!ELEMENT Autores (
+    Autor+
+)>
+
+<!-- Autor -->
+<!ELEMENT Autor (
+    Nombre,
+    Apellido?
+)>
+
+<!-- Revista -->
+<!ELEMENT Revista (
+    Titulo,
+    Paginas?,
+    Pais,
+    ISSN?,
+    DireccionElectronica
+)>
+
+<!-- Libro -->
+<!ELEMENT Libro (
+    Titulo,
+    Paginas?,
+    Pais,
+    ISBN
+)>
+
+<!-- Elementos Simples-->
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Genero (#PCDATA)>
+<!ELEMENT CURP (#PCDATA)>
+<!ELEMENT RFC (#PCDATA)>
+<!ELEMENT FechaNacimiento (#PCDATA)>
+<!ELEMENT PaisNacimiento (#PCDATA)>
+<!ELEMENT ResumenBibliografico (#PCDATA)>
+<!ELEMENT Telefono (#PCDATA)>
+<!ELEMENT Correo (#PCDATA)>
+<!ELEMENT Institucion (#PCDATA)>
+<!ELEMENT Puesto (#PCDATA)>
+<!ELEMENT Departamento (#PCDATA)>
+<!ELEMENT Vigencia (#PCDATA)>
+<!ELEMENT FechaObtencion (#PCDATA)>
+<!ELEMENT Titulo (#PCDATA)>
+<!ELEMENT Cedula (#PCDATA)>
+<!ELEMENT LugarDeEstudios (#PCDATA)>
+<!ELEMENT Resumen (#PCDATA)>
+<!ELEMENT Proposito (#PCDATA)>
+<!ELEMENT SectorDisciplina (#PCDATA)>
+<!ELEMENT Paginas (#PCDATA)>
+<!ELEMENT Pais (#PCDATA)>
+<!ELEMENT ISBN (#PCDATA)>
+<!ELEMENT ISSN (#PCDATA)>
+<!ELEMENT DireccionElectronica (#PCDATA)>
+<!ELEMENT PublicadoEn (#PCDATA)>
+<!ELEMENT Apellido (#PCDATA)>
+
+<!-- Atributos -->
+<!ATTLIST TitulosAcademicos Tipo (LICENCIATURA|MAESTRIA|DOCTORADO) #REQUIRED>
+<!ATTLIST Correo Tipo (Institucional|Personal) #REQUIRED>
+<!ATTLIST Vigencia FechaInicio CDATA #REQUIRED>
+<!ATTLIST Vigencia FechaFin CDATA #IMPLIED>
+<!ATTLIST cvu
+          xmlns:xsi CDATA #IMPLIED
+          xsi:noNamespaceSchemaLocation CDATA #IMPLIED
+          noNamespaceSchemaLocation CDATA #IMPLIED>

@@ -27,32 +27,28 @@ El núcleo de la API (`main.py`) requiere las siguientes librerías para manejar
 El ecosistema requiere que Nginx esté ejecutándose localmente en el puerto `8080` para servir los archivos físicos a los que FastAPI hace peticiones.
 
 Debes asegurarte de que tu archivo `nginx.conf` incluya la directiva `autoindex on`; y defina los siguientes `alias` apuntando a tus directorios locales en el disco `C:/`:
-
-    ```bash
-    server {
-        listen       8080;
-        server_name  localhost;
-        autoindex on;
-
-        # Exposición de esquemas y archivos Rizoma / SECIHTI
-        location /SECIHTIServ/ {
-            alias "C:/servidores_locales/SECIHTIServ/";
-            add_header Access-Control-Allow-Origin *;
-        }
-
-        # Exposición de esquemas y archivos TecNM
-        location /TecNMServ/ {
-            alias "C:/servidores_locales/TecNMServ/";
-            add_header Access-Control-Allow-Origin *;
-        }
-
-        # Exposición de esquemas y archivos PRODEP
-        location /PRODEPServ/ {
-            alias "C:/servidores_locales/PRODEPServ/";
-            add_header Access-Control-Allow-Origin *;
-        }
+```bash
+server {
+    listen       8080;
+    server_name  localhost;
+    autoindex on;
+    # Exposición de esquemas y archivos Rizoma / SECIHTI
+    location /SECIHTIServ/ {
+        alias "C:/servidores_locales/SECIHTIServ/";
+        add_header Access-Control-Allow-Origin *;
     }
-    ```
+    # Exposición de esquemas y archivos TecNM
+    location /TecNMServ/ {
+        alias "C:/servidores_locales/TecNMServ/";
+        add_header Access-Control-Allow-Origin *;
+    }
+    # Exposición de esquemas y archivos PRODEP
+    location /PRODEPServ/ {
+        alias "C:/servidores_locales/PRODEPServ/";
+        add_header Access-Control-Allow-Origin *;
+    }
+}
+```
 
 ## Ejecución del Proyecto
 1. **Iniciar Nginx**: Asegúrate de que el servicio de Nginx esté corriendo y que las carpetas en `C:/servidores_locales/` existan y contengan los esquemas correspondientes.
